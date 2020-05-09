@@ -15,7 +15,10 @@ import { ProductsContext } from "../../context/products-context";
 //THIS IMPORT IS FOR CUSTOM HOOKS
 import { useStore} from "../../hook-store/store";
 
-const ProductItem = props => {
+
+
+//REACT MEMO FOR CODE OPTIMIZATION
+const ProductItem = React.memo(props => {
   //this line is for redux
   // const dispatch = useDispatch();
 
@@ -33,25 +36,25 @@ const ProductItem = props => {
     // togglefav here is for context
     toggleFav(props.id);
 
-   // THIS IS FOR CUSTOM HOOK
-   //  dispatch('TOGGLE_FAV', props.id);
+    // THIS IS FOR CUSTOM HOOK
+    //  dispatch('TOGGLE_FAV', props.id);
 
   };
 
   return (
-    <Card style={{ marginBottom: '3rem' }}>
-      <div className="product-item">
-        <h2 className={props.isFav ? 'is-fav' : ''}>{props.title}</h2>
-        <p>{props.description}</p>
-        <button
-          className={!props.isFav ? 'button-outline' : ''}
-          onClick={toggleFavHandler}
-        >
-          {props.isFav ? 'Un-Favorite' : 'Favorite'}
-        </button>
-      </div>
-    </Card>
+      <Card style={{ marginBottom: '3rem' }}>
+        <div className="product-item">
+          <h2 className={props.isFav ? 'is-fav' : ''}>{props.title}</h2>
+          <p>{props.description}</p>
+          <button
+              className={!props.isFav ? 'button-outline' : ''}
+              onClick={toggleFavHandler}
+          >
+            {props.isFav ? 'Un-Favorite' : 'Favorite'}
+          </button>
+        </div>
+      </Card>
   );
-};
+}) ;
 
 export default ProductItem;
