@@ -8,9 +8,14 @@ configure({Adapter: new Adapter()});
 
 
 describe('<ProductItem />', ()=>{
+
+    let wrapper;
+    beforeEach(()=>{
+        wrapper = shallow(<ProductItem/>)
+    });
   it ('should render a card with style', ()=>{
       // here we are rendering the navigation item component and storing it in wrapper
-      const wrapper = shallow(<ProductItem />);
+       wrapper = shallow(<ProductItem />);
       expect(wrapper.find(Card)).toHaveStyle(<style></style>);
   });
 });
