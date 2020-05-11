@@ -16,7 +16,6 @@ import { ProductsContext } from "../../context/products-context";
 import { useStore} from "../../hook-store/store";
 
 
-
 //REACT MEMO FOR CODE OPTIMIZATION
 const ProductItem = React.memo(props => {
   //this line is for redux
